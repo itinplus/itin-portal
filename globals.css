@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 213 67% 17%;         /* navy-900 #0F2A44 */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 38 92% 50%;           /* gold-500 #f59e0b */
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 213 67% 17%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 213 67% 55%;
+    --primary-foreground: 222 47% 6%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 38 92% 50%;
+    --accent-foreground: 222 47% 6%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 213 67% 55%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground antialiased; }
+}
+
+/* RTL support for Arabic/Urdu */
+[dir='rtl'] .sidebar { @apply right-0 left-auto; }
+[dir='rtl'] .sidebar-content { @apply mr-0 ml-64; }
+
+/* Skeleton shimmer */
+.skeleton {
+  background: linear-gradient(90deg, hsl(var(--muted)) 25%, hsl(var(--border)) 50%, hsl(var(--muted)) 75%);
+  background-size: 200% 100%;
+  @apply animate-shimmer rounded;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { @apply bg-muted; }
+::-webkit-scrollbar-thumb { @apply bg-muted-foreground/30 rounded-full; }
+
+/* Status badge colors */
+.status-account-created   { @apply bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300; }
+.status-payment-pending   { @apply bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400; }
+.status-documents-pending { @apply bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400; }
+.status-under-review      { @apply bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400; }
+.status-correction        { @apply bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400; }
+.status-w7-prepared       { @apply bg-violet-100 text-violet-800 dark:bg-violet-900/30 dark:text-violet-400; }
+.status-submitted-irs     { @apply bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-400; }
+.status-irs-processing    { @apply bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-400; }
+.status-itin-issued       { @apply bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400; }
+.status-rejected          { @apply bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400; }
+.status-closed            { @apply bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400; }
